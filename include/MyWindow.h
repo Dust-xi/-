@@ -1,6 +1,7 @@
 #ifndef MYWINDOW_H
 #define MYWINDOW_H
 #include<QMainWindow>
+#include <QWidget>
 #pragma once
 
 class MyWindow : public QMainWindow
