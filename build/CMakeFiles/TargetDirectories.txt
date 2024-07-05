@@ -1,0 +1,4 @@
+/home/du/project/intelligence_parking/build/CMakeFiles/rebuild_cache.dir
+/home/du/project/intelligence_parking/build/CMakeFiles/edit_cache.dir
+/home/du/project/intelligence_parking/build/CMakeFiles/intell_parking.dir
+/home/du/project/intelligence_parking/build/CMakeFiles/intell_parking_autogen.dir
