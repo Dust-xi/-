@@ -84,6 +84,7 @@ QSqlQuery DataBase :: prepareAndExecQuery(const QString& queryStr) {
 }
 #include "DataBase.h"
 
+//入库操作
 bool DataBase::addCarInfo(const QString& carId, const QString& carColor,
                            const QDateTime& entryTime, const QDateTime& exitTime,
                            const QTime& parkingDuration, const QString& entryGate,
@@ -108,7 +109,31 @@ bool DataBase::addCarInfo(const QString& carId, const QString& carColor,
     qDebug() << "成功插入数据!";
     return true;
 }
+//出库操作
+bool DataBase::closeCarInfo(const QString& carId, const QString& carColor,
+                           const QDateTime& entryTime, const QDateTime& exitTime,
+                           const QTime& parkingDuration, const QString& entryGate,
+                           const QString& exitGate) {
+    QSqlQuery query(db);
 
+    query.prepare("INSERT INTO Caryard_table (carId, carColor, entryTime, exitTime, parkingDuration, entryGate, exitGate) "
+                  "VALUES (:carId, :carColor, :entryTime, :exitTime, :parkingDuration, :entryGate, :exitGate)");
+    query.bindValue(":carId", carId);
+    query.bindValue(":carColor", carColor);
+    query.bindValue(":entryTime", entryTime.toString(Qt::ISODate));
+    query.bindValue(":exitTime", exitTime.toString(Qt::ISODate));
+    query.bindValue(":parkingDuration", parkingDuration.toString("hh:mm:ss"));
+    query.bindValue(":entryGate", entryGate);
+    query.bindValue(":exitGate", exitGate);
+
+    if (!query.exec()) {
+        qDebug() << "插入数据失败:" << query.lastError().text();
+        return false;
+    }
+
+    qDebug() << "成功插入数据!";
+    return true;
+}
 DataBase::~DataBase()
 {
 

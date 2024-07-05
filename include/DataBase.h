@@ -22,8 +22,11 @@ public:
     bool addCarInfo(const QString& carId, const QString& carColor,
                 const QDateTime& entryTime, const QDateTime& exitTime,
                 const QTime& parkingDuration, const QString& entryGate,
-                const QString& exitGate)
-    
+                const QString& exitGate);
+    bool closeCarInfo(const QString& carId, const QString& carColor,
+                           const QDateTime& entryTime, const QDateTime& exitTime,
+                           const QTime& parkingDuration, const QString& entryGate,
+                           const QString& exitGate)
 };
 
 #endif
