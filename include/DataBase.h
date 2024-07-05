@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QSqlError>
 #include <QDateTime>
+#include <QSqlTableModel>
 #pragma once
 
 class DataBase
@@ -20,13 +21,10 @@ public:
     QSqlQuery prepareAndExecQuery(const QString& queryStr);
     bool checkAndCreateTables();
     bool addCarInfo(const QString& carId, const QString& carColor,
-                const QDateTime& entryTime, const QDateTime& exitTime,
-                const QTime& parkingDuration, const QString& entryGate,
-                const QString& exitGate);
+                    const QDateTime& entryTime,  const QString& entryGate);
     bool closeCarInfo(const QString& carId, const QString& carColor,
-                           const QDateTime& entryTime, const QDateTime& exitTime,
-                           const QTime& parkingDuration, const QString& entryGate,
-                           const QString& exitGate)
+                    const QDateTime& exitTime,const QString& exitGate);
+    QSqlTableModel* getTableModel(const QString& tableName);
 };
 
 #endif

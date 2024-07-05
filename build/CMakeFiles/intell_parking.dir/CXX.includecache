@@ -15,6 +15,10 @@ QDebug
 -
 QSqlError
 -
+QDateTime
+-
+QSqlTableModel
+-
 
 ../include/MyWindow.h
 QMainWindow
@@ -43,6 +47,20 @@ Recognition.h
 ../include/Recognition.h
 DataBase.h
 ../include/DataBase.h
+chrono
+-
+ctime
+-
+QDateTime
+-
+QAction
+-
+QSqlTableModel
+-
+QTableView
+-
+QStringList
+-
 
 ../include/Picture.h
 QWidget
@@ -250,6 +268,38 @@ vector
 opencv2/core/core.hpp
 ../include/easypr/util/opencv2/core/core.hpp
 
+/home/du/project/intelligence_parking/build/intell_parking_autogen/6YEA5652QU/moc_MyWindow.cpp
+MyWindow.h
+/home/du/project/intelligence_parking/build/intell_parking_autogen/6YEA5652QU/MyWindow.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+/home/du/project/intelligence_parking/build/intell_parking_autogen/6YEA5652QU/moc_Picture.cpp
+Picture.h
+/home/du/project/intelligence_parking/build/intell_parking_autogen/6YEA5652QU/Picture.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+/home/du/project/intelligence_parking/build/intell_parking_autogen/6YEA5652QU/moc_Recognition.cpp
+Recognition.h
+/home/du/project/intelligence_parking/build/intell_parking_autogen/6YEA5652QU/Recognition.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+/home/du/project/intelligence_parking/build/intell_parking_autogen/mocs_compilation.cpp
+6YEA5652QU/moc_MyWindow.cpp
+/home/du/project/intelligence_parking/build/intell_parking_autogen/6YEA5652QU/moc_MyWindow.cpp
+6YEA5652QU/moc_Picture.cpp
+/home/du/project/intelligence_parking/build/intell_parking_autogen/6YEA5652QU/moc_Picture.cpp
+6YEA5652QU/moc_Recognition.cpp
+/home/du/project/intelligence_parking/build/intell_parking_autogen/6YEA5652QU/moc_Recognition.cpp
+
 /home/du/project/intelligence_parking/src/MyWindow.cpp
 MyWindow.h
 /home/du/project/intelligence_parking/src/MyWindow.h
@@ -277,9 +327,21 @@ QHBoxLayout
 -
 QDebug
 -
-QListWidget
+QTableView
 -
 QLabel
+-
+QDir
+-
+
+/home/du/project/intelligence_parking/src/main.cpp
+QApplication
+-
+MyWindow.h
+/home/du/project/intelligence_parking/src/MyWindow.h
+DataBase.h
+/home/du/project/intelligence_parking/src/DataBase.h
+iostream
 -
 
 /usr/include/opencv4/opencv2/calib3d.hpp
@@ -1570,9 +1632,17 @@ opencv2/viz/viz3d.hpp
 opencv2/viz/types.hpp
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QDateTime
+qdatetime.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug
 qdebug.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QDir
+qdir.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject
 qobject.h
@@ -1581,6 +1651,10 @@ qobject.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QString
 qstring.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList
+qstringlist.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
 QtCore/qvariant.h
@@ -1684,6 +1758,20 @@ limits.h
 new
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h
+QtCore/qglobal.h
+-
+QtCore/qstring.h
+-
+QtCore/qobject.h
+-
+QtCore/qcoreevent.h
+-
+QtCore/qeventloop.h
+-
+QtCore/qscopedpointer.h
+-
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h
 QtCore/qnamespace.h
 -
@@ -1698,6 +1786,16 @@ QtCore/qscopedpointer.h
 QtCore/qiodevice.h
 -
 QtCore/qpair.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h
+QtCore/qstring.h
+-
+QtCore/qnamespace.h
+-
+QtCore/qshareddata.h
+-
+limits
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h
@@ -1732,6 +1830,20 @@ map
 utility
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h
+QtCore/qstring.h
+-
+QtCore/qfileinfo.h
+-
+QtCore/qstringlist.h
+-
+QtCore/qshareddata.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h
+QtCore/qobject.h
+-
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h
 QtCore/qfiledevice.h
 -
@@ -1744,6 +1856,16 @@ stdio.h
 QtCore/qiodevice.h
 -
 QtCore/qstring.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h
+QtCore/qfile.h
+-
+QtCore/qlist.h
+-
+QtCore/qshareddata.h
+-
+QtCore/qmetatype.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h
@@ -2412,6 +2534,22 @@ QtCore/qsharedpointer.h
 QtCore/qrect.h
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h
+QtGui/qtguiglobal.h
+-
+QtCore/qcoreapplication.h
+-
+QtGui/qwindowdefs.h
+-
+QtGui/qinputmethod.h
+-
+QtCore/qlocale.h
+-
+QtCore/qpoint.h
+-
+QtCore/qsize.h
+-
+
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h
 QtGui/qtguiglobal.h
 -
@@ -2442,6 +2580,12 @@ QtCore/qrect.h
 QtCore/qstring.h
 -
 QtCore/qstringlist.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h
+QtGui/qtguiglobal.h
+-
+QtCore/qobject.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h
@@ -2640,6 +2784,10 @@ qsqlerror.h
 qsqlquery.h
 /usr/include/x86_64-linux-gnu/qt5/QtSql/qsqlquery.h
 
+/usr/include/x86_64-linux-gnu/qt5/QtSql/QSqlTableModel
+qsqltablemodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtSql/qsqltablemodel.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtSql/qsqldatabase.h
 QtSql/qtsqlglobal.h
 -
@@ -2660,6 +2808,22 @@ QtSql/qsqldatabase.h
 QtCore/qstring.h
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtSql/qsqlquerymodel.h
+QtSql/qtsqlglobal.h
+-
+QtCore/qabstractitemmodel.h
+-
+QtSql/qsqldatabase.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtSql/qsqltablemodel.h
+QtSql/qtsqlglobal.h
+-
+QtSql/qsqldatabase.h
+-
+QtSql/qsqlquerymodel.h
+-
+
 /usr/include/x86_64-linux-gnu/qt5/QtSql/qtsql-config.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtSql/qtsqlglobal.h
@@ -2668,6 +2832,14 @@ QtCore/qglobal.h
 QtSql/qtsql-config.h
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction
+qaction.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
+qapplication.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout
 qboxlayout.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h
@@ -2675,10 +2847,6 @@ qboxlayout.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
 qlabel.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListWidget
-qlistwidget.h
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistwidget.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
 qmainwindow.h
@@ -2699,6 +2867,10 @@ qpushbutton.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabBar
 qtabbar.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView
+qtableview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout
 qboxlayout.h
@@ -2780,6 +2952,24 @@ QtWidgets/qtwidgetsglobal.h
 QtWidgets/qaction.h
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtCore/qcoreapplication.h
+-
+QtGui/qwindowdefs.h
+-
+QtCore/qpoint.h
+-
+QtCore/qsize.h
+-
+QtGui/qcursor.h
+-
+QtWidgets/qdesktopwidget.h
+-
+QtGui/qguiapplication.h
+-
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
@@ -2788,6 +2978,12 @@ QtWidgets/qlayout.h
 QtWidgets/qwidget.h
 -
 limits.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
@@ -2840,24 +3036,6 @@ QtWidgets/qsizepolicy.h
 QtCore/qrect.h
 -
 limits.h
--
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h
-QtWidgets/qtwidgetsglobal.h
--
-QtWidgets/qabstractitemview.h
--
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistwidget.h
-QtWidgets/qtwidgetsglobal.h
--
-QtWidgets/qlistview.h
--
-QtCore/qvariant.h
--
-QtCore/qvector.h
--
-QtCore/qitemselectionmodel.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
@@ -2962,6 +3140,12 @@ QtCore/qabstractitemmodel.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qabstractitemview.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h
