@@ -57,17 +57,18 @@ bool DataBase::checkAndCreateTables() {
     }
     // 检测创建出车表 车牌、车牌颜色、入库时间、出库时间、停车时间、入库口、出库口、主键id
     if (!query.exec("CREATE TABLE IF NOT EXISTS Cargo_table ("
-                    "Id INT PRIMARY KEY AUTO_INCREMENT,"
-                    "carId VARCHAR(100),"
-                    "carColor VARCHAR(50),"
-                    "entryTime DATETIME,"
-                    "exitTime DATETIME,"
-                    "parkingDuration TIME,"
-                    "entryGate VARCHAR(50),"
-                    "exitGate VARCHAR(50))"))  {
-        qDebug() << "创建表失败:" << query.lastError().text();
-        return false;
-    }
+                "Id INTEGER PRIMARY KEY AUTO_INCREMENT,"
+                "carId VARCHAR(100),"
+                "carColor VARCHAR(50),"
+                "entryTime DATETIME,"
+                "exitTime DATETIME,"
+                "parkingDuration TIME,"
+                "entryGate VARCHAR(50),"
+                "exitGate VARCHAR(50),"
+                "carBill DOUBLE(10, 2));"))  {
+    qDebug() << "创建表失败:" << query.lastError().text();
+    return false;
+}
     return true;
 }
 
@@ -150,8 +151,31 @@ bool DataBase::closeCarInfo(const QString& carId, const QString& carColor,
     qDebug() << "成功出库!";
     // 出库成功后插入 Cargo_table
     qDebug() << "出库结算";
-    query.prepare("INSERT INTO Cargo_table (carId, carColor, entryTime, exitTime, parkingDuration, entryGate, exitGate) "
-                  "VALUES (:carId, :carColor, :entryTime, :exitTime, :parkingDuration, :entryGate, :exitGate)");
+    double bill = 0;
+    if(parkingDuration.toString("hh:mm:ss")>"00:00:00.000"&&parkingDuration.toString("hh:mm:ss")<"00:00:10.000"){
+        bill = 0;
+    }else if (parkingDuration.toString("hh:mm:ss")>"00:00:10.000"&&parkingDuration.toString("hh:mm:ss")<="00:00:15.000")
+    {
+        bill = 5;
+    }else if (parkingDuration.toString("hh:mm:ss")>"00:00:15.000"&&parkingDuration.toString("hh:mm:ss")<="00:00:20.000")
+    {
+        bill = 10;
+    }else if (parkingDuration.toString("hh:mm:ss")>"00:00:20.000"&&parkingDuration.toString("hh:mm:ss")<="00:00:30.000")
+    {
+        bill = 15.5;
+    }else if (parkingDuration.toString("hh:mm:ss")>"00:00:30.000"&&parkingDuration.toString("hh:mm:ss")<="00:00:40.000")
+    {
+        bill = 25;
+    }else if (parkingDuration.toString("hh:mm:ss")>"00:00:40.000"&&parkingDuration.toString("hh:mm:ss")<="00:00:60.000")
+    {
+        bill = 30;
+    }
+    else if (parkingDuration.toString("hh:mm:ss")>"00:00:60.000")
+    {
+        bill = 50;
+    }
+    query.prepare("INSERT INTO Cargo_table (carId, carColor, entryTime, exitTime, parkingDuration, entryGate, exitGate, carBill) "
+                  "VALUES (:carId, :carColor, :entryTime, :exitTime, :parkingDuration, :entryGate, :exitGate, :carBill)");
     query.bindValue(":carId", carId);
     query.bindValue(":carColor", carColor);
     query.bindValue(":entryTime", entryTime);
@@ -159,6 +183,7 @@ bool DataBase::closeCarInfo(const QString& carId, const QString& carColor,
     query.bindValue(":parkingDuration", parkingDuration.toString("hh:mm:ss"));
     query.bindValue(":entryGate", entryGate);
     query.bindValue(":exitGate", exitGate);
+    query.bindValue(":carBill", bill);
 
     if (!query.exec()) {
         qDebug() << "插入 Cargo_table 失败:" << query.lastError().text();

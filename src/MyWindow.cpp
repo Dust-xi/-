@@ -22,9 +22,12 @@
 MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/image/general_test/"), 
                 tableView(new QTableView), 
                 tableView_go(new QTableView),
-                tablelayout(new QHBoxLayout),
-                tablelayout_go(new QVBoxLayout),
+                // tablelayout(new QHBoxLayout),
+                // tablelayout_go(new QVBoxLayout),
+                // tablewidget(new QWidget),
+                // tablewidget_go(new QWidget),
                 imagecome(QStringList()),
+                splitter_list(new QSplitter(Qt::Vertical)),
                 img(QString()),
                 picture(new Picture)
 {
@@ -80,25 +83,28 @@ MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/imag
     //按钮容器
     QWidget *buttonwidget = new QWidget;
     //数据显示容器
-    QWidget *listwidget = new QWidget;
+    //QSplitter *splitter_list = new QSplitter(Qt::Horizontal);
     //图片显示容器
     QWidget *imgwidget = new QWidget;
     //将容器放入splitter中
     splitter->addWidget(buttonwidget);
     QSplitter *splitter_hor = new QSplitter(Qt::Horizontal);
+    
     splitter->addWidget(splitter_hor);
-    splitter_hor->addWidget(listwidget);
+    splitter_hor->addWidget(splitter_list);
     splitter_hor->addWidget(imgwidget);
+    splitter_list->addWidget(tableView);
+    splitter_list->addWidget(tableView_go);
 
     //数据容器设置
-    listwidget->setLayout(tablelayout);
-    
+    // splitter_list->addWidget(tablewidget);
+    // splitter_list->addWidget(tablewidget_go);
     // 创建一个表名标签
     // QLabel *tableNameLabel = new QLabel("停车场现有车辆", listwidget);
     // tablelayout->addWidget(tableNameLabel);
 
     // 设置水平表头的伸缩模式
-    tablelayout->addWidget(btn_load);
+    // tablelayout->addWidget(btn_load);
 
     //按钮容器设置
     QGridLayout *gridLayout = new QGridLayout;
@@ -116,9 +122,11 @@ MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/imag
     gridLayout->addWidget(btn_load,1,3);
     //图片容器设置
     splitter_hor->addWidget(picture);
+    splitter_hor->setStretchFactor(2,3);
+    splitter_hor->setStretchFactor(1,3);
 
     //表单更新
-    //upData();
+    upData();
     //车来了
     comecar();
 
@@ -198,8 +206,14 @@ void MyWindow::upData()
     }
     //返回数据
     tableView->setModel(model);
-    tableView->setMinimumSize(400,600);
-    tablelayout->addWidget(tableView);
+    tableView->setMinimumSize(900,200);
+    //tablelayout->addWidget(tableView);
+    // 清空并重新添加控件
+    while (splitter_list->count() > 0) {
+        splitter_list->widget(0)->setParent(nullptr);
+    }
+    splitter_list->addWidget(tableView);
+    splitter_list->addWidget(tableView_go);
 
 }
 
@@ -223,8 +237,14 @@ void MyWindow::upDatacar()
         // 添加一行空数据
     }
     tableView_go->setModel(model_go);
-    tableView_go->setMinimumSize(400,600);
-    tablelayout->addWidget(tableView_go);
+    tableView_go->setMinimumSize(900,200);
+    //tablelayout->addWidget(tableView_go);
+    // 清空并重新添加控件
+    while (splitter_list->count() > 0) {
+        splitter_list->widget(0)->setParent(nullptr);
+    }
+    splitter_list->addWidget(tableView);
+    splitter_list->addWidget(tableView_go);
 }
 
 void MyWindow::comecar()
@@ -235,7 +255,7 @@ void MyWindow::comecar()
     imagecome.append(img);
     qDebug() << img;
     QImage image(img); 
-    picture->setImage(image); 
+    picture->setImagePath(img); 
 }
 
 void MyWindow::gobycar()
@@ -253,7 +273,7 @@ void MyWindow::gobycar()
         qDebug() << "Failed to load image:" << img;
         return;
     }
-    picture->setImage(image);
+    picture->setImagePath(img);
     imagecome.removeAt(randnumber); // 从列表中移除已使用的图片
 }
 

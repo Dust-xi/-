@@ -242,7 +242,8 @@ CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QWheelEvent
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h
@@ -255,14 +256,17 @@ CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qmatrix.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainterpath.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpolygon.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgba64.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtgui-config.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h
@@ -284,11 +288,11 @@ CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtSql/qtsqlglobal.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenu
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabBar
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout
@@ -304,7 +308,6 @@ CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
@@ -314,6 +317,7 @@ CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplitter.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h
@@ -646,7 +650,8 @@ CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QWheelEvent
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h
@@ -659,14 +664,17 @@ CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qmatrix.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainterpath.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpolygon.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgba64.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtgui-config.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h
@@ -805,7 +813,8 @@ CMakeFiles/intell_parking.dir/src/Picture.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QWheelEvent
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h
@@ -817,14 +826,17 @@ CMakeFiles/intell_parking.dir/src/Picture.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qmatrix.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainterpath.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpolygon.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgba64.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtgui-config.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h
@@ -832,15 +844,7 @@ CMakeFiles/intell_parking.dir/src/Picture.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h
@@ -1325,7 +1329,8 @@ CMakeFiles/intell_parking.dir/src/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QWheelEvent
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h
@@ -1340,14 +1345,17 @@ CMakeFiles/intell_parking.dir/src/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qmatrix.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainterpath.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpolygon.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgba64.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtgui-config.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h
@@ -1370,11 +1378,11 @@ CMakeFiles/intell_parking.dir/src/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenu
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabBar
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout
@@ -1392,7 +1400,6 @@ CMakeFiles/intell_parking.dir/src/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
@@ -1402,6 +1409,7 @@ CMakeFiles/intell_parking.dir/src/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplitter.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h

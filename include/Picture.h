@@ -1,24 +1,28 @@
+// Picture.h
 #ifndef PICTURE_H
 #define PICTURE_H
 
 #include <QWidget>
-#include <QLabel>
-#include <QVBoxLayout>
 #include <QImage>
-#include <QPixmap>
+#include <QWheelEvent>
+#include <QPainter>
 
 class Picture : public QWidget
 {
     Q_OBJECT
 
 public:
-    Picture(QWidget *parent = nullptr);
-    ~Picture();
-    void setImage(const QImage &image);
+    explicit Picture(QWidget *parent = nullptr);
+    void setImagePath(const QString &path);
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
+    void wheelEvent(QWheelEvent *event) override;
 
 private:
-    QLabel *imageLabel;
-    QVBoxLayout *layout;
+    QImage image;
+    QString imagePath;
+    double scaleFactor;
 };
 
 #endif // PICTURE_H

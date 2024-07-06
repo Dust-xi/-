@@ -21,6 +21,7 @@
 #include <QSqlTableModel>
 #include <QTableView>
 #include <QStringList>
+#include <QSplitter>
 #pragma once
 
 
@@ -58,8 +59,11 @@ private:
     DataBase dbManager;
     QTableView *tableView;
     QTableView *tableView_go;
-    QHBoxLayout *tablelayout;
-    QVBoxLayout *tablelayout_go;
+    // QHBoxLayout *tablelayout;
+    // QVBoxLayout *tablelayout_go;
+    // QWidget *tablewidget;
+    // QWidget *tablewidget_go;
+    QSplitter *splitter_list;
     //未入库车辆信息
     QStringList imageFiles;
     //入库的车辆信息
