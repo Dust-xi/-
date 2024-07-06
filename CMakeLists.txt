@@ -40,7 +40,7 @@ add_executable(${PROJECT_NAME}
 )
 # 链接库目录
 link_directories(${PROJECT_SOURCE_DIR}/lib)
-
+message("sss"${PROJECT_SOURCE_DIR},${PROJECT_NAME} )
 # 链接所需的库文件
 target_link_libraries(${PROJECT_NAME} 
     Qt5::Widgets

@@ -35,7 +35,6 @@ cv::String Recognition::recogni(const QString &img)
     vector<easypr::CPlate> plateVec;
 
     int result = pr.plateRecognize(image, plateVec);
-    //int result = pr.plateRecognizeAsText(src, plateVec);
     if (result == 0) {
         size_t num = plateVec.size();
     for (size_t j = 0; j < num; j++) {
@@ -44,8 +43,10 @@ cv::String Recognition::recogni(const QString &img)
     }
     }
 
-    if (result != 0) std::cout << "result:" << result << std::endl;
-
+    if (result != 0) {
+        std::cout << "result:" << result << std::endl;
+        return 0;
+    }
 
 }
 

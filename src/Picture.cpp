@@ -3,6 +3,7 @@
 Picture::Picture(QWidget *parent) : QWidget(parent)
 {
     imageLabel = new QLabel(this);
+    imageLabel->setFixedSize(500,350);
     layout = new QVBoxLayout(this);
     layout->addWidget(imageLabel);
     setLayout(layout);

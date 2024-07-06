@@ -562,6 +562,7 @@ CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QDir
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject
+CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QRandomGenerator
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QString
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
@@ -614,6 +615,7 @@ CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qpair.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qpoint.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qprocessordetection.h
+CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qrandom.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h
@@ -690,6 +692,8 @@ CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenu
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
+CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem
+CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabBar
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout
@@ -715,6 +719,7 @@ CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h
+CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplitter.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h

@@ -14,12 +14,19 @@
 #include <QTableView>
 #include <QLabel>
 #include <QDir>
+#include <QRandomGenerator>
+#include <QLabel>
+#include <QSpacerItem>
+#include <QSplitter>
 #define Debug 0
 MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/image/general_test/"), 
                 tableView(new QTableView), 
-                tablelayout(new QVBoxLayout),
-                imagecome(QStringList()
-                )
+                tableView_go(new QTableView),
+                tablelayout(new QHBoxLayout),
+                tablelayout_go(new QVBoxLayout),
+                imagecome(QStringList()),
+                img(QString()),
+                picture(new Picture)
 {
     DataBase dbManager;
     if (dbManager.connectToDatabase("localhost", "car", "root", "123456")) {
@@ -27,9 +34,9 @@ MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/imag
     }
     QDir dir(imagePath);
     
-    // 获取文件夹中的所有图片文件
+    // 获取文件夹中的jpg图片文件
     QStringList filters;
-    filters << "*.jpg" << "*.jpeg" << "*.png" << "*.bmp" << "*.gif";
+    filters << "*.jpg";
     dir.setNameFilters(filters);
     imageFiles = dir.entryList(QDir::Files);
 
@@ -38,6 +45,7 @@ MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/imag
         file = imagePath + file;
     }
     qDebug()<<imageFiles[0];
+    img = imageFiles[0];
     //debug
     if(Debug){
         QString carId = "川12345";
@@ -52,46 +60,68 @@ MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/imag
         }
     }
     //按钮
-    btn1 = new QPushButton("测试");
+    btn_test = new QPushButton("测试");
     btn_o1 = new QPushButton("入库-A1");
     btn_o2 = new QPushButton("入库-A2");
     btn_c1 = new QPushButton("出库-B1");
     btn_c2 = new QPushButton("出库-B2");
-    btn2 = new QPushButton("加载数据");
-    btn3 = new QPushButton("车来了");
-    btn4 = new QPushButton("车走了");
+    btn_load = new QPushButton("加载数据");
+    btn_come = new QPushButton("车来了");
+    btn_go = new QPushButton("车走了");
 
-    //主界面创建、数据显示界面创建
-    mainLayout = new QHBoxLayout;
-    mainLayout->addLayout(tablelayout);
-    tablelayout->addWidget(btn2);
-    //数据更新
-    upData();
+    // 创建中央窗口并设置布局
+    centralWidget = new QWidget(this);
     
+    //主界面创建、数据显示界面创建
+    QSplitter *splitter = new QSplitter(Qt::Vertical);
+    mainLayout = new QHBoxLayout;
+    centralWidget->setLayout(mainLayout);
+    mainLayout->addWidget(splitter);
+    //按钮容器
+    QWidget *buttonwidget = new QWidget;
+    //数据显示容器
+    QWidget *listwidget = new QWidget;
+    //图片显示容器
+    QWidget *imgwidget = new QWidget;
+    //将容器放入splitter中
+    splitter->addWidget(buttonwidget);
+    QSplitter *splitter_hor = new QSplitter(Qt::Horizontal);
+    splitter->addWidget(splitter_hor);
+    splitter_hor->addWidget(listwidget);
+    splitter_hor->addWidget(imgwidget);
+
+    //数据容器设置
+    listwidget->setLayout(tablelayout);
+    
+    // 创建一个表名标签
+    // QLabel *tableNameLabel = new QLabel("停车场现有车辆", listwidget);
+    // tablelayout->addWidget(tableNameLabel);
+
+    // 设置水平表头的伸缩模式
+    tablelayout->addWidget(btn_load);
+
+    //按钮容器设置
+    QGridLayout *gridLayout = new QGridLayout;
+    buttonwidget->setLayout(gridLayout);
     //入库操作按钮显示
-    layoutopen = new QVBoxLayout;
-    mainLayout->addLayout(layoutopen);
-    layoutopen->addWidget(btn1);
-    layoutopen->addWidget(btn_o1);
-    layoutopen->addWidget(btn_o2);
-    layoutopen->addWidget(btn3);
-   
-    // 车辆信息显示
-    picture = new Picture(this);
-    QImage image(imageFiles[0]); 
-    picture->setImage(image);
-    mainLayout->addWidget(picture);
+    gridLayout->addWidget(btn_test, 0, 0); // 第一行第一列
+    gridLayout->addWidget(btn_o1, 0, 1); // 第一行第二列
+    gridLayout->addWidget(btn_o2, 0, 2); // 第一行第三列
+    gridLayout->addWidget(btn_come, 0, 3); // 第一行第四列
 
     //出库操作按钮显示
-    layoutclose = new QVBoxLayout;
-    mainLayout->addLayout(layoutclose);
-    layoutclose->addWidget(btn_c1);
-    layoutclose->addWidget(btn_c2);
-    layoutclose->addWidget(btn4);
+    gridLayout->addWidget(btn_c1, 1, 0); // 第二行第一列
+    gridLayout->addWidget(btn_c2, 1, 1); // 第二行第二列
+    gridLayout->addWidget(btn_go, 1, 2); // 第二行第三列
+    gridLayout->addWidget(btn_load,1,3);
+    //图片容器设置
+    splitter_hor->addWidget(picture);
 
-     // 创建中央窗口并设置布局
-    centralWidget = new QWidget(this);
-    centralWidget->setLayout(mainLayout);
+    //表单更新
+    //upData();
+    //车来了
+    comecar();
+
     setCentralWidget(centralWidget);
 
     // 创建菜单栏和菜单项
@@ -101,11 +131,22 @@ MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/imag
     exitAction = new QAction("打开", this);
     connect(exitAction, &QAction::triggered, this, &QMainWindow::close);
     //按钮绑定
-    connect(btn1,&QPushButton::clicked,this,&MyWindow::onButton1Clicked);
-    connect(btn_o1,&QPushButton::clicked,this,&MyWindow::onOpenclicked);
-    connect(btn_c1,&QPushButton::clicked,this,&MyWindow::onCloseclicked);
-    connect(btn2,&QPushButton::clicked,this,&MyWindow::upData);
-    connect(btn3,&QPushButton::clicked,this,&MyWindow::comecar);
+    connect(btn_test,&QPushButton::clicked,this,&MyWindow::onButton1Clicked);
+    connect(btn_o1, &QPushButton::clicked, this, [=]() {
+        this->onOpenclicked("A1");
+    });
+    connect(btn_c1, &QPushButton::clicked, this, [=]() {
+        this->onCloseclicked("B1");
+    });
+    connect(btn_o2, &QPushButton::clicked, this, [=]() {
+        this->onOpenclicked("A2");
+    });
+    connect(btn_c2, &QPushButton::clicked, this, [=]() {
+        this->onCloseclicked("B2");
+    });
+    connect(btn_load,&QPushButton::clicked,this,&MyWindow::upData);
+    connect(btn_come,&QPushButton::clicked,this,&MyWindow::comecar);
+    connect(btn_go,&QPushButton::clicked,this,&MyWindow::gobycar);
     fileMenu->addAction(exitAction);
     menuBar->addMenu(fileMenu);
     menuBar->addMenu(indexMenu);
@@ -145,45 +186,86 @@ void MyWindow::upData()
         std::cout << "连接成功！" << std::endl;
     }
     QSqlTableModel *model = dbManager.getTableModel("Caryard_table");
-    // tableView->setModel(model);
-    // tablelayout->addWidget(tableView);
-
-    // QSqlTableModel* model = new QSqlTableModel();
-    // model->setTable("Caryard_table");
-    // model->select();
-    // if (!model->select()) {
-    //     qDebug() << "Not table:" << model->lastError().text();
-    //     delete model; // 清理未成功加载数据的模型
-    //     exit(0);
-    // }
-    // if (model->rowCount() <= 0) {
-    //     qDebug() << "Not data:" << "Caryard_table";
-    //     delete model; 
-    //    exit(0);
-    // }
+    model->setTable("Caryard_table");
+    model->select();
+    if (!model->select()) {
+        qDebug() << "Not table:" << model->lastError().text();
+        delete model; // 清理未成功加载数据的模型
+        exit(0);
+    }
+    if (model->rowCount() <= 0) {
+        qDebug() << "Not data:" << "Caryard_table";
+    }
     //返回数据
     tableView->setModel(model);
+    tableView->setMinimumSize(400,600);
     tablelayout->addWidget(tableView);
+
+}
+
+void MyWindow::upDatacar()
+{
+    DataBase dbManager;
+    if (dbManager.connectToDatabase("localhost", "car", "root", "123456")) {
+        std::cout << "连接成功！" << std::endl;
+    }
+    QSqlTableModel *model_go = dbManager.getTableModel("Cargo_table");
+    model_go->setTable("Cargo_table");
+    model_go->select();
+
+    if (!model_go->select()) {
+        qDebug() << "Not table:" << model_go->lastError().text();
+        delete model_go; // 清理未成功加载数据的模型
+        exit(0); // 如果表不存在，程序退出
+    }
+    if (model_go->rowCount() <= 0) {
+        qDebug() << "Not data in Cargo_table";
+        // 添加一行空数据
+    }
+    tableView_go->setModel(model_go);
+    tableView_go->setMinimumSize(400,600);
+    tablelayout->addWidget(tableView_go);
 }
 
 void MyWindow::comecar()
 {
-    
+    // 取0-250的随机数
+    int randomNumber = QRandomGenerator::global()->bounded(0, 250 + 1);
+    img = imageFiles[randomNumber];
+    imagecome.append(img);
+    qDebug() << img;
+    QImage image(img); 
+    picture->setImage(image); 
 }
 
 void MyWindow::gobycar()
 {
+    int count = imagecome.size();
+    if (count == 0) {
+        qDebug() << "没有车辆";
+        return;
+    }
+    int randnumber = QRandomGenerator::global()->bounded(0, count);
+    img = imagecome[randnumber];
+    qDebug() << "gobycar selected image:" << img;
+    QImage image(img);
+    if (image.isNull()) {
+        qDebug() << "Failed to load image:" << img;
+        return;
+    }
+    picture->setImage(image);
+    imagecome.removeAt(randnumber); // 从列表中移除已使用的图片
 }
 
 //入库
-void MyWindow::onOpenclicked()
+void MyWindow::onOpenclicked(const QString &men)
 {
     DataBase dbManager;
     if (dbManager.connectToDatabase("localhost", "car", "root", "123456")) {
         std::cout << "连接成功！" << std::endl;
     }
     //获取车牌信息
-    std::string number = recognition->recogni(imageFiles[0]);
+    std::string number = recognition->recogni(img);
     std::string pp[2];
     plate(number,pp);
     QString carColor = QString::fromStdString(pp[0]);
@@ -193,31 +275,31 @@ void MyWindow::onOpenclicked()
     qDebug() << "num:" << carId;
     qDebug() << "color:" << carColor;
     qDebug() << "time:" << entryTime;
-    dbManager.addCarInfo(carId, carColor, entryTime,"A1");
+    dbManager.addCarInfo(carId, carColor, entryTime,men);
     upData();
 }
 
 //出库
-void MyWindow::onCloseclicked()
+void MyWindow::onCloseclicked(const QString &men)
 {
     DataBase dbManager;
     if (dbManager.connectToDatabase("localhost", "car", "root", "123456")) {
         std::cout << "连接成功！" << std::endl;
     }
     //获取车牌信息
-    std::string number = recognition->recogni(imageFiles[0]);
+    std::string number = recognition->recogni(img);
     std::string pp[2];
     plate(number,pp);
     QString carColor = QString::fromStdString(pp[0]);
     QString carId = QString::fromStdString(pp[1]);
     // 获取当前系统时间点
     QDateTime exitTime = QDateTime::currentDateTime();
-    dbManager.closeCarInfo(carId, carColor, exitTime,"B1");
-    upData();
+    dbManager.closeCarInfo(carId, carColor, exitTime,men);
+    upDatacar();
 }
 
 void MyWindow::onButton1Clicked()
 {
-    std::string number = recognition->recogni(imageFiles[0]);
+    std::string number = recognition->recogni(img);
     std::cout << number <<std::endl;
 }

@@ -33,21 +33,19 @@ public:
     ~MyWindow();
 
 private:
-    QPushButton *btn1;
+    QPushButton *btn_test;
     QPushButton *btn_o1;
     QPushButton *btn_o2;
     QPushButton *btn_c1;
     QPushButton *btn_c2;
-    QPushButton *btn2;
-    QPushButton *btn3;
-    QPushButton *btn4;
+    QPushButton *btn_load;
+    QPushButton *btn_come;
+    QPushButton *btn_go;
     
 
     QWidget *centralWidget;
     QWidget *picturelayout;
     QHBoxLayout *mainLayout;
-    QVBoxLayout *layoutopen;
-    QVBoxLayout *layoutclose;
     QMenuBar *menuBar;
     QMenu *fileMenu;
     QMenu *indexMenu;
@@ -59,18 +57,22 @@ private:
     QString imagePath;
     DataBase dbManager;
     QTableView *tableView;
-    QVBoxLayout *tablelayout;
+    QTableView *tableView_go;
+    QHBoxLayout *tablelayout;
+    QVBoxLayout *tablelayout_go;
     //未入库车辆信息
     QStringList imageFiles;
     //入库的车辆信息
     QStringList imagecome;
+    QString img;
 
 private slots:
     void onButton1Clicked();
-    void onOpenclicked();
-    void onCloseclicked();
+    void onOpenclicked(const QString &men);
+    void onCloseclicked(const QString &men);
     void plate(std::string &plateString,std::string pp[2]);
     void upData();
+    void upDatacar();
     void comecar();
     void gobycar();
 };

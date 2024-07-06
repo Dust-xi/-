@@ -42,7 +42,6 @@ bool DataBase::checkAndCreateTables() {
         qDebug() << "创建表失败:" << query.lastError().text();
         return false;
     }
-
     // 检测创建停车表 车牌、车牌颜色、入库时间、出库时间、停车时间、入库口、出库口、主键车牌
     if (!query.exec("CREATE TABLE IF NOT EXISTS Caryard_table ("
                     "carId VARCHAR(100) NOT NULL,"
@@ -53,6 +52,19 @@ bool DataBase::checkAndCreateTables() {
                     "entryGate VARCHAR(50),"
                     "exitGate VARCHAR(50),"
                     "PRIMARY KEY (carId))"))  {
+        qDebug() << "创建表失败:" << query.lastError().text();
+        return false;
+    }
+    // 检测创建出车表 车牌、车牌颜色、入库时间、出库时间、停车时间、入库口、出库口、主键id
+    if (!query.exec("CREATE TABLE IF NOT EXISTS Cargo_table ("
+                    "Id INT PRIMARY KEY AUTO_INCREMENT,"
+                    "carId VARCHAR(100),"
+                    "carColor VARCHAR(50),"
+                    "entryTime DATETIME,"
+                    "exitTime DATETIME,"
+                    "parkingDuration TIME,"
+                    "entryGate VARCHAR(50),"
+                    "exitGate VARCHAR(50))"))  {
         qDebug() << "创建表失败:" << query.lastError().text();
         return false;
     }
@@ -106,8 +118,8 @@ bool DataBase::closeCarInfo(const QString& carId, const QString& carColor,
                             const QDateTime& exitTime, const QString& exitGate) {
     QSqlQuery query(db);
 
-    // 查找车辆的入库时间
-    query.prepare("SELECT entryTime FROM Caryard_table WHERE carId = :carId AND carColor = :carColor AND exitTime IS NULL");
+    // 查找车辆的入库时间和入库口
+    query.prepare("SELECT entryTime, entryGate FROM Caryard_table WHERE carId = :carId AND carColor = :carColor AND exitTime IS NULL;");
     query.bindValue(":carId", carId);
     query.bindValue(":carColor", carColor);
 
@@ -117,7 +129,7 @@ bool DataBase::closeCarInfo(const QString& carId, const QString& carColor,
     }
 
     QDateTime entryTime = query.value("entryTime").toDateTime();
-
+    QString entryGate = query.value("entryGate").toString();
     // 计算停车时间
     qint64 durationSecs = entryTime.secsTo(exitTime);
     QTime parkingDuration = QTime(0, 0).addSecs(durationSecs);
@@ -136,6 +148,23 @@ bool DataBase::closeCarInfo(const QString& carId, const QString& carColor,
         return false;
     }
     qDebug() << "成功出库!";
+    // 出库成功后插入 Cargo_table
+    qDebug() << "出库结算";
+    query.prepare("INSERT INTO Cargo_table (carId, carColor, entryTime, exitTime, parkingDuration, entryGate, exitGate) "
+                  "VALUES (:carId, :carColor, :entryTime, :exitTime, :parkingDuration, :entryGate, :exitGate)");
+    query.bindValue(":carId", carId);
+    query.bindValue(":carColor", carColor);
+    query.bindValue(":entryTime", entryTime);
+    query.bindValue(":exitTime", exitTime.toString(Qt::ISODate));
+    query.bindValue(":parkingDuration", parkingDuration.toString("hh:mm:ss"));
+    query.bindValue(":entryGate", entryGate);
+    query.bindValue(":exitGate", exitGate);
+
+    if (!query.exec()) {
+        qDebug() << "插入 Cargo_table 失败:" << query.lastError().text();
+        return false;
+    }
+    qDebug() << "结算成功";
     // 删除已出库的车辆信息
     query.prepare("DELETE FROM Caryard_table WHERE carId = :carId AND carColor = :carColor AND exitTime = :exitTime");
     query.bindValue(":carId", carId);
