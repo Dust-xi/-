@@ -45,7 +45,7 @@ cv::String Recognition::recogni(const QString &img)
 
     if (result != 0) {
         std::cout << "result:" << result << std::endl;
-        return 0;
+        return "天:000000";
     }
 
 }

@@ -287,6 +287,7 @@ CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /us
 CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtSql/qtsqlglobal.h
 CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction
 CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout
+CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLCDNumber
 CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
 CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenu
 CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar
@@ -309,6 +310,7 @@ CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /us
 CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h
 CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h
 CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h
+CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlcdnumber.h
 CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
 CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h
 CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h
@@ -650,6 +652,7 @@ CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter
+CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QPalette
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QWheelEvent
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h
@@ -695,6 +698,7 @@ CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtSql/qtsqlglobal.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout
+CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLCDNumber
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenu
@@ -720,6 +724,7 @@ CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h
+CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlcdnumber.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h
 CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h
@@ -1377,6 +1382,7 @@ CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/
 CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction
 CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
 CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout
+CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLCDNumber
 CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
 CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenu
 CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar
@@ -1401,6 +1407,7 @@ CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/
 CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h
 CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h
 CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h
+CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlcdnumber.h
 CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
 CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h
 CMakeFiles/intell_parking.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h

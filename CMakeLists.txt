@@ -37,6 +37,8 @@ add_executable(${PROJECT_NAME}
     ${PROJECT_SOURCE_DIR}/src/Picture.cpp
     ${PROJECT_SOURCE_DIR}/include/Recognition.h
     ${PROJECT_SOURCE_DIR}/src/Recognition.cpp
+    ${PROJECT_SOURCE_DIR}/include/DisplayClock.h
+    ${PROJECT_SOURCE_DIR}/src/DisplayClock.cpp
 )
 # 链接库目录
 link_directories(${PROJECT_SOURCE_DIR}/lib)

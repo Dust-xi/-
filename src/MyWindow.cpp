@@ -18,6 +18,8 @@
 #include <QLabel>
 #include <QSpacerItem>
 #include <QSplitter>
+#include <QLCDNumber>
+#include <QPalette>
 #define Debug 0
 MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/image/general_test/"), 
                 tableView(new QTableView), 
@@ -29,12 +31,14 @@ MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/imag
                 imagecome(QStringList()),
                 splitter_list(new QSplitter(Qt::Vertical)),
                 img(QString()),
+                lcd(new QLCDNumber()),
                 picture(new Picture)
 {
     DataBase dbManager;
     if (dbManager.connectToDatabase("localhost", "car", "root", "123456")) {
         std::cout << "连接成功！" << std::endl;
     }
+    int count = dbManager.carnumber();
     QDir dir(imagePath);
     
     // 获取文件夹中的jpg图片文件
@@ -84,47 +88,61 @@ MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/imag
     QWidget *buttonwidget = new QWidget;
     //数据显示容器
     //QSplitter *splitter_list = new QSplitter(Qt::Horizontal);
-    //图片显示容器
-    QWidget *imgwidget = new QWidget;
-    //将容器放入splitter中
-    splitter->addWidget(buttonwidget);
-    QSplitter *splitter_hor = new QSplitter(Qt::Horizontal);
+    //时钟和剩余车位显示容器
+    QWidget *clockwidget = new QWidget;
     
+    //图片和数据列表
+    QSplitter *splitter_hor = new QSplitter(Qt::Horizontal);
+    //按钮和时间及停车位
+    QSplitter *splitter_clock = new QSplitter(Qt::Horizontal);
+    QHBoxLayout *layout = new QHBoxLayout;
+    //将容器放入splitter_clock中
+    splitter_clock->addWidget(buttonwidget);
+    splitter_clock->addWidget(clockwidget);
+
+    splitter->addWidget(splitter_clock);
     splitter->addWidget(splitter_hor);
+
     splitter_hor->addWidget(splitter_list);
-    splitter_hor->addWidget(imgwidget);
     splitter_list->addWidget(tableView);
     splitter_list->addWidget(tableView_go);
 
-    //数据容器设置
-    // splitter_list->addWidget(tablewidget);
-    // splitter_list->addWidget(tablewidget_go);
-    // 创建一个表名标签
-    // QLabel *tableNameLabel = new QLabel("停车场现有车辆", listwidget);
-    // tablelayout->addWidget(tableNameLabel);
-
-    // 设置水平表头的伸缩模式
-    // tablelayout->addWidget(btn_load);
+    //时钟及剩余车位 TODO
+    lcd.setDigitCount(3); 
+    lcd.setSegmentStyle(QLCDNumber::Filled); 
+    QPalette palette = lcd.palette();
+    palette.setColor(QPalette::WindowText, Qt::green); // 数字颜色
+    lcd.setPalette(palette);
+    clock_num();
+    
+    QLabel *text = new QLabel("剩余车位：");
+    //设置属性
+    text->setAlignment(Qt::AlignCenter);
+    text->setStyleSheet("font-size: 20px; font-weight: bold;");
+    text->setFixedHeight(50);
+    text->setFixedWidth(100);
+    layout->addWidget(text);
+    layout->addWidget(&lcd);
+    clockwidget->setLayout(layout);
 
     //按钮容器设置
     QGridLayout *gridLayout = new QGridLayout;
     buttonwidget->setLayout(gridLayout);
     //入库操作按钮显示
-    gridLayout->addWidget(btn_test, 0, 0); // 第一行第一列
-    gridLayout->addWidget(btn_o1, 0, 1); // 第一行第二列
-    gridLayout->addWidget(btn_o2, 0, 2); // 第一行第三列
-    gridLayout->addWidget(btn_come, 0, 3); // 第一行第四列
+    gridLayout->addWidget(btn_test, 0, 0);
+    gridLayout->addWidget(btn_o1, 0, 1); 
+    gridLayout->addWidget(btn_o2, 0, 2); 
+    gridLayout->addWidget(btn_come, 0, 3); 
 
     //出库操作按钮显示
-    gridLayout->addWidget(btn_c1, 1, 0); // 第二行第一列
-    gridLayout->addWidget(btn_c2, 1, 1); // 第二行第二列
-    gridLayout->addWidget(btn_go, 1, 2); // 第二行第三列
+    gridLayout->addWidget(btn_c1, 1, 0); 
+    gridLayout->addWidget(btn_c2, 1, 1); 
+    gridLayout->addWidget(btn_go, 1, 2); 
     gridLayout->addWidget(btn_load,1,3);
     //图片容器设置
     splitter_hor->addWidget(picture);
-    splitter_hor->setStretchFactor(2,3);
-    splitter_hor->setStretchFactor(1,3);
-
+    splitter_hor->setStretchFactor(1,2);
+    splitter_hor->setStretchFactor(1,2);
     //表单更新
     upData();
     //车来了
@@ -190,8 +208,8 @@ void MyWindow::plate(std::string &plateString,std::string pp[2]){
 void MyWindow::upData()
 {
     DataBase dbManager;
-    if (dbManager.connectToDatabase("localhost", "car", "root", "123456")) {
-        std::cout << "连接成功！" << std::endl;
+    if (!dbManager.connectToDatabase("localhost", "car", "root", "123456")) {
+        std::cout << "连接失败！" << std::endl;
     }
     QSqlTableModel *model = dbManager.getTableModel("Caryard_table");
     model->setTable("Caryard_table");
@@ -206,7 +224,7 @@ void MyWindow::upData()
     }
     //返回数据
     tableView->setModel(model);
-    tableView->setMinimumSize(900,200);
+    tableView->setMinimumSize(700,200);
     //tablelayout->addWidget(tableView);
     // 清空并重新添加控件
     while (splitter_list->count() > 0) {
@@ -220,8 +238,8 @@ void MyWindow::upData()
 void MyWindow::upDatacar()
 {
     DataBase dbManager;
-    if (dbManager.connectToDatabase("localhost", "car", "root", "123456")) {
-        std::cout << "连接成功！" << std::endl;
+    if (!dbManager.connectToDatabase("localhost", "car", "root", "123456")) {
+        std::cout << "连接失败！" << std::endl;
     }
     QSqlTableModel *model_go = dbManager.getTableModel("Cargo_table");
     model_go->setTable("Cargo_table");
@@ -237,7 +255,7 @@ void MyWindow::upDatacar()
         // 添加一行空数据
     }
     tableView_go->setModel(model_go);
-    tableView_go->setMinimumSize(900,200);
+    tableView_go->setMinimumSize(700,200);
     //tablelayout->addWidget(tableView_go);
     // 清空并重新添加控件
     while (splitter_list->count() > 0) {
@@ -277,12 +295,31 @@ void MyWindow::gobycar()
     imagecome.removeAt(randnumber); // 从列表中移除已使用的图片
 }
 
-//入库
+void MyWindow::clock_num()
+{
+    DataBase dbManager;
+    if (!dbManager.connectToDatabase("localhost", "car", "root", "123456")) {
+        std::cout << "连接失败！" << std::endl;
+    }
+    int count = dbManager.carnumber();
+    QPalette palette = lcd.palette();
+    if(100-count>=90){
+        palette.setColor(QPalette::WindowText, Qt::green); // 数字颜色
+        lcd.setPalette(palette);
+    }else{
+        palette.setColor(QPalette::WindowText, Qt::red); // 数字颜色
+        lcd.setPalette(palette);
+    }
+    
+    lcd.display(100-count);
+}
+
+// 入库
 void MyWindow::onOpenclicked(const QString &men)
 {
     DataBase dbManager;
-    if (dbManager.connectToDatabase("localhost", "car", "root", "123456")) {
-        std::cout << "连接成功！" << std::endl;
+    if (!dbManager.connectToDatabase("localhost", "car", "root", "123456")) {
+        std::cout << "连接失败！" << std::endl;
     }
     //获取车牌信息
     std::string number = recognition->recogni(img);
@@ -297,6 +334,7 @@ void MyWindow::onOpenclicked(const QString &men)
     qDebug() << "time:" << entryTime;
     dbManager.addCarInfo(carId, carColor, entryTime,men);
     upData();
+    clock_num();
 }
 
 //出库
@@ -316,6 +354,7 @@ void MyWindow::onCloseclicked(const QString &men)
     QDateTime exitTime = QDateTime::currentDateTime();
     dbManager.closeCarInfo(carId, carColor, exitTime,men);
     upDatacar();
+    clock_num();
 }
 
 void MyWindow::onButton1Clicked()

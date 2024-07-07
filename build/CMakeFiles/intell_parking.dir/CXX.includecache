@@ -63,6 +63,8 @@ QStringList
 -
 QSplitter
 -
+QLCDNumber
+-
 
 ../include/Picture.h
 QWidget
@@ -308,6 +310,10 @@ QLabel
 QSpacerItem
 -
 QSplitter
+-
+QLCDNumber
+-
+QPalette
 -
 
 /usr/include/opencv4/opencv2/calib3d.hpp
@@ -2392,6 +2398,10 @@ qimage.h
 qpainter.h
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h
 
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QPalette
+qpalette.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtGui/QWheelEvent
 qevent.h
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h
@@ -2832,6 +2842,10 @@ qaction.h
 qboxlayout.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLCDNumber
+qlcdnumber.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlcdnumber.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
 qlabel.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h
@@ -3008,6 +3022,12 @@ QtWidgets/qsizepolicy.h
 QtCore/qrect.h
 -
 limits.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlcdnumber.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qframe.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h

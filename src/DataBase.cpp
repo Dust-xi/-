@@ -1,5 +1,5 @@
 #include "DataBase.h"
-
+#include <iostream>
 DataBase::DataBase()
 {
 
@@ -232,6 +232,21 @@ QSqlTableModel* DataBase::getTableModel(const QString& tableName)
 
     // 成功获取数据
     return model;
+}
+
+int DataBase::carnumber()
+{
+    int count =0;
+    QSqlQuery query(db);
+    if(query.exec("SELECT COUNT(*) FROM Caryard_table")){
+        if(query.next()){
+            count = query.value(0).toInt();
+        }else{
+            qDebug() << "error:" << query.lastError().text();
+        }
+    std::cout << "car number:" << count <<std::endl;
+    }
+    return count;
 }
 
 DataBase::~DataBase()

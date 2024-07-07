@@ -22,6 +22,7 @@
 #include <QTableView>
 #include <QStringList>
 #include <QSplitter>
+#include <QLCDNumber>
 #pragma once
 
 
@@ -69,7 +70,8 @@ private:
     //入库的车辆信息
     QStringList imagecome;
     QString img;
-
+    QLCDNumber lcd;
+    void clock_num();
 private slots:
     void onButton1Clicked();
     void onOpenclicked(const QString &men);
