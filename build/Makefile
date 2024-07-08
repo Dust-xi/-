@@ -190,6 +190,33 @@ src/DataBase.cpp.s:
 	$(MAKE) -f CMakeFiles/intell_parking.dir/build.make CMakeFiles/intell_parking.dir/src/DataBase.cpp.s
 .PHONY : src/DataBase.cpp.s
 
+src/DisplayClock.o: src/DisplayClock.cpp.o
+
+.PHONY : src/DisplayClock.o
+
+# target to build an object file
+src/DisplayClock.cpp.o:
+	$(MAKE) -f CMakeFiles/intell_parking.dir/build.make CMakeFiles/intell_parking.dir/src/DisplayClock.cpp.o
+.PHONY : src/DisplayClock.cpp.o
+
+src/DisplayClock.i: src/DisplayClock.cpp.i
+
+.PHONY : src/DisplayClock.i
+
+# target to preprocess a source file
+src/DisplayClock.cpp.i:
+	$(MAKE) -f CMakeFiles/intell_parking.dir/build.make CMakeFiles/intell_parking.dir/src/DisplayClock.cpp.i
+.PHONY : src/DisplayClock.cpp.i
+
+src/DisplayClock.s: src/DisplayClock.cpp.s
+
+.PHONY : src/DisplayClock.s
+
+# target to generate assembly for a file
+src/DisplayClock.cpp.s:
+	$(MAKE) -f CMakeFiles/intell_parking.dir/build.make CMakeFiles/intell_parking.dir/src/DisplayClock.cpp.s
+.PHONY : src/DisplayClock.cpp.s
+
 src/MyWindow.o: src/MyWindow.cpp.o
 
 .PHONY : src/MyWindow.o
@@ -314,6 +341,9 @@ help:
 	@echo "... src/DataBase.o"
 	@echo "... src/DataBase.i"
 	@echo "... src/DataBase.s"
+	@echo "... src/DisplayClock.o"
+	@echo "... src/DisplayClock.i"
+	@echo "... src/DisplayClock.s"
 	@echo "... src/MyWindow.o"
 	@echo "... src/MyWindow.i"
 	@echo "... src/MyWindow.s"

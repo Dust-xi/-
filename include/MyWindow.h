@@ -23,6 +23,7 @@
 #include <QStringList>
 #include <QSplitter>
 #include <QLCDNumber>
+#include "DisplayClock.h"
 #pragma once
 
 
@@ -71,6 +72,7 @@ private:
     QStringList imagecome;
     QString img;
     QLCDNumber lcd;
+    DisplayClock *clock;
     void clock_num();
 private slots:
     void onButton1Clicked();

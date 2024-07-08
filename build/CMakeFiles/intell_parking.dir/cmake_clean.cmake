@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "intell_parking_autogen"
   "CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/intell_parking.dir/src/DataBase.cpp.o"
+  "CMakeFiles/intell_parking.dir/src/DisplayClock.cpp.o"
   "CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o"
   "CMakeFiles/intell_parking.dir/src/Picture.cpp.o"
   "CMakeFiles/intell_parking.dir/src/Recognition.cpp.o"

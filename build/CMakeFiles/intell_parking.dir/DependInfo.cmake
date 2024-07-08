@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/du/project/intelligence_parking/build/intell_parking_autogen/mocs_compilation.cpp" "/home/du/project/intelligence_parking/build/CMakeFiles/intell_parking.dir/intell_parking_autogen/mocs_compilation.cpp.o"
   "/home/du/project/intelligence_parking/src/DataBase.cpp" "/home/du/project/intelligence_parking/build/CMakeFiles/intell_parking.dir/src/DataBase.cpp.o"
+  "/home/du/project/intelligence_parking/src/DisplayClock.cpp" "/home/du/project/intelligence_parking/build/CMakeFiles/intell_parking.dir/src/DisplayClock.cpp.o"
   "/home/du/project/intelligence_parking/src/MyWindow.cpp" "/home/du/project/intelligence_parking/build/CMakeFiles/intell_parking.dir/src/MyWindow.cpp.o"
   "/home/du/project/intelligence_parking/src/Picture.cpp" "/home/du/project/intelligence_parking/build/CMakeFiles/intell_parking.dir/src/Picture.cpp.o"
   "/home/du/project/intelligence_parking/src/Recognition.cpp" "/home/du/project/intelligence_parking/build/CMakeFiles/intell_parking.dir/src/Recognition.cpp.o"

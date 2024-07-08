@@ -20,6 +20,9 @@
 #include <QSplitter>
 #include <QLCDNumber>
 #include <QPalette>
+#include <QMessageBox>
+#include <QTimer>
+#include "DisplayClock.h"
 #define Debug 0
 MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/image/general_test/"), 
                 tableView(new QTableView), 
@@ -32,7 +35,8 @@ MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/imag
                 splitter_list(new QSplitter(Qt::Vertical)),
                 img(QString()),
                 lcd(new QLCDNumber()),
-                picture(new Picture)
+                picture(new Picture),
+                clock(new DisplayClock)
 {
     DataBase dbManager;
     if (dbManager.connectToDatabase("localhost", "car", "root", "123456")) {
@@ -107,7 +111,7 @@ MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/imag
     splitter_list->addWidget(tableView);
     splitter_list->addWidget(tableView_go);
 
-    //时钟及剩余车位 TODO
+    //时钟及剩余车位 
     lcd.setDigitCount(3); 
     lcd.setSegmentStyle(QLCDNumber::Filled); 
     QPalette palette = lcd.palette();
@@ -116,6 +120,7 @@ MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/imag
     clock_num();
     
     QLabel *text = new QLabel("剩余车位：");
+    DisplayClock *clock = new DisplayClock();
     //设置属性
     text->setAlignment(Qt::AlignCenter);
     text->setStyleSheet("font-size: 20px; font-weight: bold;");
@@ -123,6 +128,7 @@ MyWindow::MyWindow() : imagePath("/home/du/project/intelligence_parking/res/imag
     text->setFixedWidth(100);
     layout->addWidget(text);
     layout->addWidget(&lcd);
+    layout->addWidget(clock);
     clockwidget->setLayout(layout);
 
     //按钮容器设置

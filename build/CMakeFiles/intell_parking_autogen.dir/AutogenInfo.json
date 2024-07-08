@@ -13,6 +13,11 @@
 			"6YEA5652QU/moc_DataBase.cpp"
 		],
 		[
+			"/home/du/project/intelligence_parking/include/DisplayClock.h",
+			"MU",
+			"6YEA5652QU/moc_DisplayClock.cpp"
+		],
+		[
 			"/home/du/project/intelligence_parking/include/MyWindow.h",
 			"MU",
 			"6YEA5652QU/moc_MyWindow.cpp"
@@ -89,6 +94,7 @@
 	"SOURCES" : 
 	[
 		[ "/home/du/project/intelligence_parking/src/DataBase.cpp", "MU" ],
+		[ "/home/du/project/intelligence_parking/src/DisplayClock.cpp", "MU" ],
 		[ "/home/du/project/intelligence_parking/src/MyWindow.cpp", "MU" ],
 		[ "/home/du/project/intelligence_parking/src/Picture.cpp", "MU" ],
 		[ "/home/du/project/intelligence_parking/src/Recognition.cpp", "MU" ],
